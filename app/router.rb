@@ -8,20 +8,21 @@ class Router
 
   def run
     print_welcome
-    login
+    user = login
+    print_welcome_user(user)
     while @running == true
       print_menu
       action = gets.chomp.to_i
-      route_action(action)
+      route_action(action, user)
     end
   end
 
   private
 
-  def route_action(action)
+  def route_action(action, user)
     case action
-    when 1 then puts "action1"
-    when 2 then puts how_to_play
+    when 1 then @users_controller.select_adventurer(user)
+    when 2 then how_to_play
     when 3 then stop!
     end
   end
@@ -35,6 +36,7 @@ class Router
   end
 
   def print_menu
+    puts "\n"
     actions.each_with_index do |action, index|
       puts "#{index + 1} - #{action}"
     end
@@ -54,7 +56,12 @@ class Router
   def login
     puts "\nEnter your name:"
     print "> "
-    @users_controller.create
+    @users_controller.current_user
+  end
+
+  def print_welcome_user(user)
+    puts "\n--\nHi #{user.name}! Welcome to the kingdom of Logres"
+    puts "Go on an adventure with Arthur and his Knights of the Round Table!\n--\n"
   end
 
   def how_to_play
