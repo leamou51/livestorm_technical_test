@@ -1,0 +1,3 @@
+class AdventurersView
+
+end

@@ -1,5 +1,4 @@
-require 'readline'
+require_relative "../config/application"
+require_relative "router"
 
-while input = Readline.readline('> ', true)
-  break if input == 'exit'
-end
+Router.new.run
