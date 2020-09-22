@@ -15,7 +15,7 @@ puts "DB cleaned!"
 puts "Creating adventurers..."
 
 Adventurer.new(name: "Adventurer1", strength: 2, sagacity: 1, luck: 4, trickery: 1, attacks: "attack1 attack2", shields: "shield1 shield2", quote: "quote1").save
-Adventurer.new(name: "Adventurer2", strength: 4, sagacity: 3, luck: 1, trickery: 5, attacks: "attack1 attack2", shields: "shield1 shield2", quote: "quote2").save
+Adventurer.new(name: "Adventurer2", strength: 4, sagacity: 3, luck: 2, trickery: 5, attacks: "attack1 attack2", shields: "shield1 shield2", quote: "quote2").save
 Adventurer.new(name: "Adventurer3", strength: 3, sagacity: 4, luck: 3, trickery: 2, attacks: "attack1 attack2", shields: "shield1 shield2", quote: "quote3").save
 Adventurer.new(name: "Adventurer4", strength: 5, sagacity: 2, luck: 2, trickery: 3, attacks: "attack1 attack2", shields: "shield1 shield2", quote: "quote4").save
 
