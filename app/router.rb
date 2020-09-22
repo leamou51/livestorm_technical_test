@@ -1,8 +1,10 @@
 require_relative "controllers/users_controller"
+require_relative "controllers/rounds_controller"
 
 class Router
   def initialize
     @users_controller = UsersController.new
+    @rounds_controller = RoundsController.new
     @running = true
   end
 
@@ -20,10 +22,15 @@ class Router
   private
 
   def route_action(action, user)
-    case action
-    when 1 then @users_controller.select_adventurer(user)
-    when 2 then how_to_play
-    when 3 then stop!
+    if action == 1
+    @users_controller.select_adventurer(user)
+    @rounds_controller.play(user)
+    elsif action == 2
+      how_to_play
+    elsif action == 3
+      stop!
+    else
+      puts "Try again..."
     end
   end
 

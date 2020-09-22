@@ -22,5 +22,6 @@ class UsersController
     adventurer = @adventurers_controller.find_from_index
     user.adventurer = adventurer
     user.save
+    @users_view.go_on_mission(adventurer.name)
   end
 end

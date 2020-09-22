@@ -5,6 +5,7 @@ require_relative "../app/models/room"
 
 puts "Cleaning DB..."
 
+User.destroy_all
 Adventurer.destroy_all
 Enemy.destroy_all
 Room.destroy_all
