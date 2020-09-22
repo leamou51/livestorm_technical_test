@@ -1,3 +1,4 @@
 class User < ActiveRecord::Base
-  belongs_to :character
+  belongs_to :adventurer
+  has_many :rounds
 end

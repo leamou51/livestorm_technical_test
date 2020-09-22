@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_21_121442) do
+ActiveRecord::Schema.define(version: 2020_09_22_114458) do
 
   create_table "adventurers", force: :cascade do |t|
     t.string "name"
@@ -36,8 +36,20 @@ ActiveRecord::Schema.define(version: 2020_09_21_121442) do
 
   create_table "rooms", force: :cascade do |t|
     t.string "name"
+    t.boolean "item"
+    t.integer "enemy_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["enemy_id"], name: "index_rooms_on_enemy_id"
+  end
+
+  create_table "rounds", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_rounds_on_room_id"
+    t.index ["user_id"], name: "index_rounds_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,5 +62,8 @@ ActiveRecord::Schema.define(version: 2020_09_21_121442) do
     t.index ["adventurer_id"], name: "index_users_on_adventurer_id"
   end
 
+  add_foreign_key "rooms", "enemies"
+  add_foreign_key "rounds", "rooms"
+  add_foreign_key "rounds", "users"
   add_foreign_key "users", "adventurers"
 end
