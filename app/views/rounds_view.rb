@@ -24,16 +24,21 @@ class RoundsView
   end
 
   def display_safe_curse(health_point)
-    puts "\n--\nOh noooo! It was a trap!! You've been put under a curse and you only have #{health_point} healing points left..."
+    puts "\n--\nOh noooo! It was a trap!! You've been put under a curse and you only have #{health_point} health points left... 😱"
   end
 
   def display_safe_healing(health_point)
-    puts "\n--\nLucky bastard, it was a healing safe!! You now have #{health_point} healing points!"
+    puts "\n--\nLucky bastard, it was a healing safe!! You now have #{health_point} health points! 🌈"
   end
 
   def display_fight_announcement(enemyname)
-    puts "you now have to fight #{enemyname} Guardian of the room!"
-    puts "Let's kick some ass!!\n--\n"
+    puts "You now have to fight #{enemyname} Guardian of the room!"
+    puts "Let's kick some ass! 😎\n--\n"
+  end
+
+  def display_fight_announcement_final(enemyname)
+    puts "Oh my god, you're facing #{enemyname}, your arch enemy!"
+    puts "Respect and Robustness ✊\n--\n"
   end
 
   def display_attacks(attacks)
@@ -43,18 +48,22 @@ class RoundsView
   end
 
   def display_fight_win(health_point)
-    puts "\n--\nNice move, he only have #{health_point} healing points left\n--\n"
+    puts "\n--\nNice move, he only have #{health_point} health points left! 👍\n--\n"
   end
 
-  def display_fight_loose(health_point)
-    puts "\n--\nOh nooooo, he blocked your attack and he inflicted damage on you. You only have #{health_point} healing points left\n--\n"
+  def display_fight_lose(health_point)
+    puts "\n--\nOh nooooo, he blocked your attack and he inflicted damage on you. You only have #{health_point} health points left! 😱\n--\n"
   end
 
-  def display_loose
-    puts "\n--\nGAME OVER\n--\n"
+  def display_round_win
+    puts "\n--\nWell done, you kicked the crap out of him! Let's leave for your next mission! 🚀\n--\n"
+  end
+
+  def display_lose
+    puts "\n--\nGAME OVER 😞\n--\n"
   end
 
   def display_win
-    puts "\n--\nYOU WIN\n--\n"
+    puts "\n--\nYOU WIN 🎉\n--\n"
   end
 end

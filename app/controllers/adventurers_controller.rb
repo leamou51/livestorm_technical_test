@@ -6,11 +6,13 @@ class AdventurersController
     @adventurers_view = AdventurersView.new
   end
 
+  # DISPLAY ALL ADVENTURERS
   def index
     adventurers = Adventurer.all.to_a
     @adventurers_view.display_adventurers(adventurers)
   end
 
+  # SELECT ADVENTURER CHOSEN BY PLAYER
   def find_from_index
     index
     adventurer_index = @adventurers_view.ask_for_index("adventurer").to_i - 1

@@ -14,32 +14,37 @@ puts "DB cleaned!"
 
 puts "Creating adventurers..."
 
-Adventurer.new(name: "Adventurer1", strength: 2, sagacity: 1, luck: 4, trickery: 1, attacks: "attack1 attack2", shields: "shield1 shield2", quote: "quote1").save
-Adventurer.new(name: "Adventurer2", strength: 4, sagacity: 3, luck: 2, trickery: 5, attacks: "attack1 attack2", shields: "shield1 shield2", quote: "quote2").save
-Adventurer.new(name: "Adventurer3", strength: 3, sagacity: 4, luck: 3, trickery: 2, attacks: "attack1 attack2", shields: "shield1 shield2", quote: "quote3").save
-Adventurer.new(name: "Adventurer4", strength: 5, sagacity: 2, luck: 2, trickery: 3, attacks: "attack1 attack2", shields: "shield1 shield2", quote: "quote4").save
+Adventurer.new(name: "Karadoc de Vannes", strength: 2, sagacity: 2, luck: 4, trickery: 1, attacks: "sausage_rosary ham", shields: "shield1 shield2", quote: "Fat is life").save
+Adventurer.new(name: "Perceval de Galles", strength: 2, sagacity: 1, luck: 5, trickery: 1, attacks: "fennel redundant_object", shields: "shield1 shield2", quote: "In life, I had two enemies: vocabulary and spinach.").save
+Adventurer.new(name: "Bohort de Gaunes", strength: 1, sagacity: 4, luck: 3, trickery: 1, attacks: "fruit_basket fine_fabric", shields: "shield1 shield2", quote: "MISCREEEEEEEAAAAAANT").save
+Adventurer.new(name: "Leodagan de Carmelide", strength: 4, sagacity: 3, luck: 2, trickery: 3, attacks: "ballista stake", shields: "shield1 shield2", quote: " Well, I learned to read, and I wouldn't wish that on anyone!").save
+Adventurer.new(name: "Loth d'Orcanie", strength: 2, sagacity: 4, luck: 2, trickery: 5, attacks: "lightning your_wife", shields: "shield1 shield2", quote: "When you want to be sure of your shot...you plant turnips. We don't practice putsch").save
 
 puts "Adventurers created!"
 
 puts "Creating enemies..."
 
-Enemy.new(name: "Enemy1", level: 1, health_point: 5).save
-Enemy.new(name: "Enemy2", level: 2, health_point: 5).save
-Enemy.new(name: "Enemy3", level: 3, health_point: 5).save
-Enemy.new(name: "Enemy4", level: 4, health_point: 5, boss: true).save
-Enemy.new(name: "Enemy5", level: 2, health_point: 5).save
-Enemy.new(name: "Enemy6", level: 3, health_point: 5).save
-Enemy.new(name: "Enemy6", level: 1, health_point: 5).save
+snake = Enemy.new(name: "Giant snake", level: 2, health_point: 5)
+snake.save
+dragon = Enemy.new(name: "Airain's Dragon", level: 2, health_point: 5)
+dragon.save
+elias = Enemy.new(name: "Elias de Kelliwic'h", level: 3, health_point: 5)
+elias.save
+Enemy.new(name: "6-headed Hydra", level: 4, health_point: 5, boss: true).save
+attila = Enemy.new(name: "Attila", level: 1, health_point: 5)
+attila.save
+burgonde_king = Enemy.new(name: "Burgonde King", level: 1, health_point: 5)
+burgonde_king.save
 
 puts "Enemy created!"
 
 puts "Creating rooms..."
 
-Room.new(name: "Room1", item: [true,false].sample, enemy: Enemy.all.sample).save
-Room.new(name: "Room2", item: [true,false].sample, enemy: Enemy.all.sample).save
-Room.new(name: "Room3", item: [true,false].sample, enemy: Enemy.all.sample).save
-Room.new(name: "Room4", item: [true,false].sample, enemy: Enemy.all.sample).save
-Room.new(name: "Room5", item: [true,false].sample, enemy: Enemy.all.sample).save
-Room.new(name: "Room6", item: [true,false].sample, enemy: Enemy.all.sample).save
+Room.new(name: "Burgonde Kingdom", item: [true,false].sample, enemy: burgonde_king).save
+Room.new(name: "Attila's Kingdom", item: [true,false].sample, enemy: attila).save
+Room.new(name: "The Wizards' Land", item: [true,false].sample, enemy: elias).save
+Room.new(name: "The Shadow Lake", item: [true,false].sample, enemy: snake).save
+Room.new(name: "The Lost Temple", item: [true,false].sample, enemy: dragon).save
+Room.new(name: "The Haunted Cave", item: [true,false].sample, enemy: Enemy.find_by(boss: true)).save
 
 puts "Rooms created!"
